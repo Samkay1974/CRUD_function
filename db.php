@@ -1,7 +1,7 @@
 <?php
 header("Content-Type: application/json");
 
-$host = "localhost";
+$host = "169.239.251.102";
 $dbname = "mobileapps_2026B_samuelninson";
 $username = "samuel.ninson";
 $password = "Sam@Ashesi2021";
