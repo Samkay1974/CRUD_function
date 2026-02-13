@@ -1,3 +1,5 @@
 <?php
-echo "PHP is working";
+require_once("../db.php");
+echo "DB file loaded";
 ?>
+
