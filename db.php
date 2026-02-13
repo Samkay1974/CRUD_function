@@ -1,0 +1,18 @@
+<?php
+header("Content-Type: application/json");
+
+$host = "localhost";
+$dbname = "mobileapps_2026B_samuelninson";
+$username = "samuel.ninson";
+$password = "Sam@Ashesi2021";
+
+$conn = new mysqli($host, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    echo json_encode([
+        "success" => false,
+        "error" => "Database connection failed"
+    ]);
+    exit();
+}
+?>

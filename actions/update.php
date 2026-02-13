@@ -1,7 +1,7 @@
 <?php
 require_once("../db.php");
 
-if (!isset($_POST['name']) || !isset($_POST['phone'])) {
+if (!isset($_POST['id']) || !isset($_POST['name']) || !isset($_POST['phone'])) {
     echo json_encode([
         "success" => false,
         "error" => "Missing parameters"
@@ -9,20 +9,20 @@ if (!isset($_POST['name']) || !isset($_POST['phone'])) {
     exit();
 }
 
+$id = intval($_POST['id']);
 $name = $conn->real_escape_string($_POST['name']);
 $phone = $conn->real_escape_string($_POST['phone']);
 
-$sql = "INSERT INTO students (name, phone) VALUES ('$name', '$phone')";
+$sql = "UPDATE students SET name='$name', phone='$phone' WHERE id=$id";
 
 if ($conn->query($sql)) {
     echo json_encode([
-        "success" => true,
-        "data" => ["id" => $conn->insert_id]
+        "success" => true
     ]);
 } else {
     echo json_encode([
         "success" => false,
-        "error" => "Insert failed"
+        "error" => "Update failed"
     ]);
 }
 ?>
